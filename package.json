@@ -1,0 +1,29 @@
+{
+  "name": "the-write-social",
+  "version": "1.0.0",
+  "description": "A social media built by writers for writers.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node utils/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeDevLogan/The-Write-Social.git"
+  },
+  "author": "Logan Peterson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeDevLogan/The-Write-Social/issues"
+  },
+  "homepage": "https://github.com/codeDevLogan/The-Write-Social#readme",
+  "dependencies": {
+    "express": "4.18.2",
+    "mongodb": "5.1.0",
+    "mongoose": "6.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  }
+}
