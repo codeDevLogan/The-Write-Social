@@ -9,10 +9,14 @@ connection.once('open', async () => {
     await Thought.deleteMany({});
     await User.deleteMany({});
 
-    const users = [];
-    const thoughts = [];
+    let users = await User.insertMany(getUsers());
+    let thoughts = await Thought.insertMany(getTexts());
 
     for(let i = 0; i < 4; i++){
-        users.push()
+        thoughts[i].thinker = users[i]._id;
+        await thoughts[i].save();
     }
+    console.table(users);
+    console.table(thoughts);
+
 })

@@ -51,7 +51,12 @@ const getUsers = () => {
 }
 
 const getTexts = () => {
-    return texts.map((text) => {
+    return texts.map((text) => ({
         text
-    });
+    }));
+}
+
+module.exports = {
+    getUsers,
+    getTexts
 }
