@@ -7,8 +7,8 @@ const thoughtSchema = new Schema(
             required: true
         },
         thinker: {
-            type: Schema.Types.ObjectId,
-            ref: 'user',
+            type: String,
+            required: true
         },
         reactions: [
             {

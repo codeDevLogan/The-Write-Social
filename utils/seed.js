@@ -9,14 +9,23 @@ connection.once('open', async () => {
     await Thought.deleteMany({});
     await User.deleteMany({});
 
-    let users = await User.insertMany(getUsers());
-    let thoughts = await Thought.insertMany(getTexts());
+    const userThoughts = [];
+    
+    let users = getUsers();
+    let thoughts = getTexts();
 
     for(let i = 0; i < 4; i++){
-        thoughts[i].thinker = users[i]._id;
-        await thoughts[i].save();
-    }
-    console.table(users);
-    console.table(thoughts);
+        
+        const newThought = await Thought.create({ ...thoughts[i], thinker: users[i].userName });
 
+        userThoughts.push({
+            ...users[i],
+            thoughts: [newThought._id]
+        });
+    }
+
+    await User.insertMany(userThoughts);
+
+    console.table(userThoughts);
+    process.exit(0);
 })
